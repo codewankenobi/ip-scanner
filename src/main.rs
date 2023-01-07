@@ -58,7 +58,7 @@ async fn main() {
     let opts: Arguments = arguments().run();
     let (tx, rx) = channel();
 
-    print!("Scanning...");
+    print!("Scanning");
 
     for i in opts.start_port..opts.end_port {
         let tx = tx.clone();
