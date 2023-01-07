@@ -58,6 +58,8 @@ async fn main() {
     let opts: Arguments = arguments().run();
     let (tx, rx) = channel();
 
+    print!("Scanning...");
+
     for i in opts.start_port..opts.end_port {
         let tx = tx.clone();
         task::spawn(async move {
@@ -76,6 +78,6 @@ async fn main() {
     out.sort();
 
     for v in out {
-        println!("{} is open", v);
+        println!("[PORT: {:5}] is open", v);
     }
 }
